@@ -26,6 +26,7 @@ const ScreenWrapper = ({ style, children }: ScreenWrapperProps) => {
       ]}
     >
       <StatusBar barStyle="light-content"></StatusBar>
+      {children}
     </View>
   );
 };
