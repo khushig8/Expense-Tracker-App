@@ -6,17 +6,19 @@ import Button from "@/components/Button";
 import Typo from "@/components/Typo";
 import { colors } from "@/constants/theme";
 import ScreenWrapper from "@/components/ScreenWrapper";
+import { useAuth } from "@/context/AuthContext";
 
 const Home = () => {
-  const handleLogOut = async () => {
-    await signOut(auth);
-  };
+  const {user}=useAuth();
+  // const handleLogOut = async () => {
+  //   await signOut(auth);
+  // };
   return (
     <ScreenWrapper>
       <Typo>index</Typo>
-      <Button onPress={handleLogOut}>
+      {/* <Button onPress={handleLogOut}>
         <Typo color={colors.black}>Log Out</Typo>
-      </Button>
+      </Button> */}
     </ScreenWrapper>
   );
 };
