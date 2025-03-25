@@ -62,7 +62,6 @@ const Wallet = () => {
             renderItem={({ item, index }) => (
               <WalletListItem item={item} index={index} router={router} />
             )}
-            // keyExtractor={(item) => item.id}
             contentContainerStyle={styles.listStyle}
           />
         </View>

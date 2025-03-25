@@ -16,6 +16,7 @@ import TransactionList from "@/components/TransactionList";
 
 const Home = () => {
 	const { user } = useAuth();
+  if (!user) return null;
 	const router = useRouter();
 
 	const constraints = [
