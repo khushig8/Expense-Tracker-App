@@ -1,6 +1,6 @@
 import { auth, firestore } from "@/config/firebase";
 import { AuthContextType, UserType } from "@/types";
-import { router } from "expo-router";
+import { useRouter } from "expo-router";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -21,7 +21,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<UserType | null>(null);
-
+  const router = useRouter();
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
@@ -94,8 +94,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         setUser({ ...userData });
       }
     } catch (error: any) {
-      console.log("error", error);
-    }
+      let msg = error.message;
+			console.log("error", msg);    }
   };
 
   const contextValue: AuthContextType = {
